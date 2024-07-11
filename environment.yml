@@ -1,0 +1,7 @@
+name: llvm-build
+channels:
+- conda-forge
+dependencies:
+- cmake
+- cxx-compiler
+- rattler-build
