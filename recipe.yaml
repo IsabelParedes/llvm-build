@@ -1,0 +1,39 @@
+context:
+  name: tclap
+  version: 1.2.5
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/mirror/${{ name }}/archive/refs/tags/v${{ version }}.tar.gz
+  sha256: 7e87d13734076fa4f626f6144ce9a02717198b3f054341a6886e2107b048b235
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - make
+    - automake
+    - autoconf
+    - m4
+    - pkgconfig
+
+about:
+  homepage: http://tclap.sourceforge.net
+  license: MIT
+  license_family: MIT
+  license_file: COPYING
+  summary: |
+    TCLAP is a small, flexible library that provides a simple interface for
+    defining and accessing command line arguments.
+  documentation: http://tclap.sourceforge.net/manual.html
+  repository: https://sourceforge.net/projects/tclap/
+
+extra:
+  recipe-maintainers:
+    - IsabelParedes
