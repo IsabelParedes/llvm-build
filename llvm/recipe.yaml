@@ -20,8 +20,11 @@ requirements:
   build:
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
+    - cmake
     - make
     - ninja
+  host:
+    - zstd
 
 about:
   homepage: https://flang.llvm.org
