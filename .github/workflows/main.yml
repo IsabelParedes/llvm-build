@@ -26,7 +26,7 @@ jobs:
 
       - name: Build package
         run: |
-          rattler-build build --output-dir=./output/ --log-style=plain --color=always
+          rattler-build build --output-dir=./output/ --log-style=plain --color=always --no-include-recipe
 
       - name: Upload package
         uses: actions/upload-artifact@v4
