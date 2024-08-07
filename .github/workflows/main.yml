@@ -24,9 +24,10 @@ jobs:
           environment-file: environment.yml
           init-shell: bash
 
-      - name: Build package
+      - name: Build llvm package
         run: |
-          rattler-build build --output-dir=./output/ --log-style=plain --color=always
+          rattler-build build --output-dir=./output/ --log-style=plain \
+            --color=always --no-include-recipe -r llvm
 
       - name: Upload package
         uses: actions/upload-artifact@v4
