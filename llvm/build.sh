@@ -7,5 +7,5 @@ cmake -S llvm -B _fbuild -GNinja \
     -DLLVM_TARGETS_TO_BUILD=WebAssembly \
     -DLLVM_ENABLE_PROJECTS="clang;flang;mlir"
 
-cmake --build _fbuild
+cmake --build _fbuild -j2
 cmake --build _fbuild --target install
