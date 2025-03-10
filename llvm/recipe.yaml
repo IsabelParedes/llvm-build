@@ -1,0 +1,40 @@
+context:
+  name: llvm
+  version: 18.1.8
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/llvm/llvm-project/archive/refs/tags/llvmorg-${{ version }}.tar.gz
+  sha256: 09c08693a9afd6236f27a2ebae62cda656eba19021ef3f94d59e931d662d4856
+  patches:
+  - patches/01-Minimal-WASM-support-for-flang.patch
+  - patches/02-Specialize-Flang-to-target-WASM.patch
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - cmake
+    - make
+    - ninja
+  host:
+    - zstd
+
+about:
+  homepage: https://flang.llvm.org
+  license: Apache-2.0
+  license_family: Apache
+  license_file: llvm/LICENSE.TXT
+  summary: Development headers and libraries for LLVM
+  repository: https://github.com/llvm/llvm-project
+
+
+extra:
+  recipe-maintainers:
+    - IsabelParedes
